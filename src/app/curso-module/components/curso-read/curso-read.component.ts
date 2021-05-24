@@ -41,9 +41,9 @@ export class CursoReadComponent implements OnInit {
     this.cursoServiceService.read().subscribe(cursos => {
       this.courses = JSON.parse(cursos['contents']);
       this.dataSource = new MatTableDataSource(this.courses);
+      setTimeout(() => this.dataSource.paginator = this.paginator);
     });
 
-    setTimeout(() => this.dataSource.paginator = this.paginator);
   }
 
   navigateToInclude(){
@@ -66,6 +66,7 @@ export class CursoReadComponent implements OnInit {
     this.cursoServiceService.readByName(courseName).subscribe(cursos => {
       this.courses = JSON.parse(cursos['contents']);
       this.dataSource = new MatTableDataSource(this.courses);
+      setTimeout(() => this.dataSource.paginator = this.paginator);
       console.log(this.dataSource);
     });
   }
