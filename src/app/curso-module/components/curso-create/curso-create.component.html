@@ -1,0 +1,75 @@
+<mat-card class="curso-crud">
+
+  <mat-card-title>Cursos</mat-card-title>
+  <mat-form-field class="search-input">
+    <mat-label>Nome: </mat-label>
+    <input 
+      matInput 
+      placeholder="Ex. Angular" 
+      value="Nome"
+      [(ngModel)]="curso.nome" 
+      name="nome"
+    >
+  </mat-form-field>
+     
+  <mat-form-field class="search-input">
+    <mat-label>Instrutor </mat-label>
+    <input 
+      matInput 
+      placeholder="Ex. Genival" 
+      value="Instrutor"
+      [(ngModel)]="curso.instrutor" 
+      name="instrutor"
+    >
+  </mat-form-field>
+
+  <mat-form-field class="search-input">
+    <mat-label>Local </mat-label>
+    <input 
+      matInput 
+      placeholder="Ex. Procenge" 
+      value="Local"
+      [(ngModel)]="curso.local" 
+      name="local"
+    >
+  </mat-form-field>
+
+  <mat-form-field class="search-input-halfsize">
+    <mat-label>CargaHoraria </mat-label>
+    <input 
+      matInput 
+      placeholder="Ex. 27/06/2021" 
+      value="Carga Horaria"
+      [(ngModel)]="curso.cargaHoraria" 
+      name="cargaHoraria"
+    >
+  </mat-form-field>
+
+  <mat-form-field class="search-input-halfsize">
+    <mat-label>Data Inicio </mat-label>
+    <input 
+      matInput 
+      placeholder="27/06/1999" 
+      value="Data Inicio"
+      [(ngModel)]="curso.dataInicio" 
+      name="dataInicio"
+    >
+  </mat-form-field>
+  <br>
+
+  <a 
+    mat-raised-button 
+    color="primary"
+    (click)="criarCurso()"
+  >
+    Confirmar
+  </a>
+  <a 
+    mat-raised-button 
+    color="warn" 
+    (click)="navigateToHome()"
+  >
+    Cancelar
+  </a>
+</mat-card>
+
