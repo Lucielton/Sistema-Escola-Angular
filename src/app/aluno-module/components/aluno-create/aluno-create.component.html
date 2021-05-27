@@ -1,0 +1,40 @@
+<mat-card class="curso-crud">
+
+  <mat-card-title>Alunos</mat-card-title>
+
+  <mat-form-field class="search-input">
+    <mat-label>Nome </mat-label>
+    <input 
+      matInput 
+      placeholder="Ex. Procenge" 
+      [(ngModel)] = "aluno.nome"
+    >
+  </mat-form-field>
+
+  <mat-form-field class="search-input-halfsize">
+    <mat-label>Data de Nascimento </mat-label>
+    <input 
+      matInput 
+      placeholder="27/06/1999" 
+      [(ngModel)] = "aluno.dataNascimento"
+    >
+  </mat-form-field>
+
+  <br>
+
+  <a 
+    mat-raised-button 
+    color="primary"
+    (click)="createAluno()"
+  >
+    Confirmar
+  </a>
+
+  <a 
+    mat-raised-button 
+    color="warn" 
+    (click)="navigateToAlunoHome()">
+    Cancelar
+  </a>
+</mat-card>
+
