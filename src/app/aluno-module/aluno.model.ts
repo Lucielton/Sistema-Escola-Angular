@@ -1,5 +1,5 @@
 export interface Aluno{
-    codigo: number, 
+    codigo?: number, 
     nome: string, 
     dataNascimento: Date
 }

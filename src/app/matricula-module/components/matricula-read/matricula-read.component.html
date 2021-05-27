@@ -1,3 +1,69 @@
-<div class="matricula-crud">
-  <p>Matricula Route</p>
-</div>
+<mat-card class="curso-crud">
+<!--
+  <div *ngFor="let matriculaItem of matriculas" #matriculas class="teste">
+    <div >
+      <label for="">Codigo</label>
+      <input type="text" value="{{ matriculaItem.codigo }}">
+    </div>
+    <div>
+      <label for="">Aluno</label>
+      <input type="text" value="{{ matriculaItem.aluno.nome }}">
+    </div>
+    <div>
+      <label for="cursos">Cursos</label>
+      <select name="cursos">
+        <option value="" *ngFor="let matricula of matriculaItem.listaMatriculaCurso">
+          {{ matricula.curso.nome }}
+        </option>
+      </select>
+    </div>
+  </div>
+-->
+  <mat-card-title>Matriculas</mat-card-title>
+
+  <div class="table-content mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+    
+      <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef> Código </th>
+        <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.aluno.nome}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cursos">
+        <th mat-header-cell *matHeaderCellDef> Cursos </th>
+        <td mat-cell *matCellDef="let element"> 
+          <mat-form-field>
+            <mat-label>Cursos de {{ element.aluno.nome }}</mat-label>
+            <mat-select>
+              <mat-option 
+                *ngFor="let listaCurso of element.listaMatriculaCurso" 
+                [value]="listaCurso.curso.nome"
+                selected
+              >
+                {{ listaCurso.curso.nome }} 
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+
+  <a 
+    mat-raised-button 
+    color="primary" 
+    (click)="backToCourses()"
+  >
+    Voltar
+  </a>
+</mat-card>
+

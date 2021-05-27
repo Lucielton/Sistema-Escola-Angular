@@ -1,0 +1,40 @@
+<mat-card class="curso-crud">
+
+  <mat-card-title>Alunos</mat-card-title>
+
+  <mat-form-field class="search-input">
+    <mat-label>Nome </mat-label>
+    <input 
+      matInput 
+      placeholder="Ex. Procenge" 
+      [value] = "aluno.nome"
+    >
+  </mat-form-field>
+
+  <mat-form-field class="search-input-halfsize">
+    <mat-label>Data de Nascimento </mat-label>
+    <input 
+      matInput 
+      placeholder="27/06/1999" 
+      [value] = "aluno.dataNascimento | date"
+    >
+  </mat-form-field>
+
+  <br>
+
+  <a 
+    mat-raised-button 
+    color="primary"
+    (click)="updateCourse()"
+  >
+    Confirmar
+  </a>
+
+  <a 
+    mat-raised-button 
+    color="warn" 
+    (click)="navigateToHome()">
+    Cancelar
+  </a>
+</mat-card>
+
